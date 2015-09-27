@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/show'
 
-  devise_for :users
+  devise_for :users, :controllers => {
+      :sessions => 'users/sessions' ,
+      :registrations => 'users/registrations'
+  }
 
   # ログイン画面をホームにする
   devise_scope :user do
